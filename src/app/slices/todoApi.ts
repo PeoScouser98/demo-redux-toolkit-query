@@ -52,9 +52,9 @@ const todoApi = createApi({
 				invalidatesTags: ["Todo"],
 			}),
 			deleteTodo: builder.mutation<Todo, Pick<Todo, "id">>({
-				query: (id) => {
+				query: (payload) => {
 					return {
-						url: `/todos/${id}`,
+						url: `/todos/${payload.id}`,
 						method: "DELETE",
 					};
 				},

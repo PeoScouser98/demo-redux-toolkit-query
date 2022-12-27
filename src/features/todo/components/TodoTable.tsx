@@ -9,14 +9,14 @@ import Button from "@mui/material/Button";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import { Checkbox } from "@mui/material";
 
-import todoApi, { useUpdateTodoMutation } from "@/app/slices/todoApi";
+import todoApi, { useDeleteTodoMutation, useUpdateTodoMutation } from "@/app/slices/todoApi";
 import { Todo } from "@/interfaces";
 
 const TodoTable = () => {
 	const { data } = todoApi.useFetchTodosQuery(undefined);
 
 	const [updateTodo] = useUpdateTodoMutation();
-
+	const [deleteTodo] = useDeleteTodoMutation();
 	return (
 		<TableContainer>
 			<Table>
@@ -41,7 +41,13 @@ const TodoTable = () => {
 								</TableCell>
 								<TableCell>{item.todo}</TableCell>
 								<TableCell>
-									<Button color="error">
+									<Button
+										color="error"
+										onClick={() => {
+											console.log(item);
+											deleteTodo(item);
+										}}
+									>
 										<DeleteForeverIcon />
 									</Button>
 								</TableCell>

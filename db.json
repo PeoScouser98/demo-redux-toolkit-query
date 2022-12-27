@@ -4,16 +4,6 @@
       "id": 1,
       "todo": "Learning redux toolkit query",
       "completed": true
-    },
-    {
-      "id": 2,
-      "todo": "Learning Nodejs",
-      "completed": true
-    },
-    {
-      "todo": "helllo",
-      "completed": false,
-      "id": 3
     }
   ]
 }
